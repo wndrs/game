@@ -1,0 +1,204 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3,
+.bgimg-4,
+.bgimg-5 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (gif intro) */
+
+.bgimg-1 {
+ 
+  z-index: -1000;
+  min-height: 100%;
+}
+
+/* Second image (VIDEO) */
+
+.bgimg-2 {
+  background-image: url("./parallax/video.jpg");
+  min-height: 400px;
+}
+
+/* third image (photo) */
+
+.bgimg-3 {
+  background-image: url("./parallax/photo.jpg");
+  min-height: 400px;
+}
+
+/* fourt image (Web) */
+
+.bgimg-4 {
+  background-image: url("./parallax/web.jpg");
+  min-height: 400px;
+}
+
+
+
+/* Fift image (Contact) */
+.bgimg-5 {
+  background-image: url("./parallax/contact.jpg");
+  min-height: 400px;
+}
+.contactBackground
+{
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./image/ski.gif");
+  margin-top: 36px;
+  margin-bottom: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+
+}
+
+
+
+
+
+
+
+.w3-wide {
+  letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+/* scrolling Navbar color */
+.wN-black {
+  color: black;
+  background-color: rgba(255, 255, 255)
+}
+
+.wN-white {
+  color: rgb(255, 255, 255);
+}
+
+
+
+.parallax {
+  /* The image used */
+  /* Set a specific height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.videoTexte {
+  padding-left: 6%;
+  padding-right: 6%; 
+  padding-top: 25px;
+  margin: auto;
+  max-width: 832px;
+}
+/*overlay vudeo*/
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0,0,0, 0.5);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  position: relative;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color:white;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color:black;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+
+#profilePic {
+  background-image: url('./image/profile.jpg');
+  width:300px;
+ height:333; 
+}
+.introVideo{
+  max-width: 140vw;
+}
+.overlay2 {
+  margin-top: 30vh;
+  position: fixed;
+  width: 50vw;
+
+  
+}
+
+.overlay3 {
+
+  display: flex;
+  justify-content: center;
+}
