@@ -170,3 +170,14 @@ function closeNav4() {
     document.getElementById("myApp3").style.width = "0%";
 
   }
+
+  
+  function openApp4() {
+    document.getElementById("myApp4").style.width = "100%";
+  
+  }
+
+  function closeApp4() {
+    document.getElementById("myApp4").style.width = "0%";
+
+  }
