@@ -221,6 +221,7 @@ class Engine {
         document.addEventListener('keydown', e => {
             if (e.keyCode === LEFT_ARROW_CODE) {
                 this.player.move(MOVE_LEFT);
+                
             }
             else if (e.keyCode === RIGHT_ARROW_CODE) {
                 this.player.move(MOVE_RIGHT);
@@ -235,6 +236,11 @@ class Engine {
                 tryAgain();
             }
         });
+
+        document.getElementById("bouzin").addEventListener("click", e => {
+            this.player.move(MOVE_LEFT)
+        });
+            
 
  
            
@@ -407,3 +413,6 @@ function tryAgain(){
      requestAnimationFrame(gameEngine.gameLoop);
 }
 
+function bouzin(){
+    
+}
