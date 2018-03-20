@@ -237,8 +237,20 @@ class Engine {
             }
         });
 
-        document.getElementById("bouzin").addEventListener("click", e => {
+        document.getElementById("left").addEventListener("click", e => {
             this.player.move(MOVE_LEFT)
+        });
+
+        document.getElementById("right").addEventListener("click", e => {
+            this.player.move(MOVE_RIGHT)
+        });
+
+        document.getElementById("up").addEventListener("click", e => {
+            this.player.move(MOVE_UP)
+        });
+
+        document.getElementById("down").addEventListener("click", e => {
+            this.player.move(MOVE_DOWN)
         });
             
 

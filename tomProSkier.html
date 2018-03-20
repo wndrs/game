@@ -1,70 +1,99 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta  name='viewport' content=' maximum-scale=1.0, user-scalable=0'/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>TOM PRO SKIER</title>
 </head>
-<body>
-    <div  style=" display: flex; justify-content: center; align-items: center; padding: 1%">
-        <img class="bg-img" src="./images/wndrs anim .png" style="width:8%" >
-      </div>
 
-      <div>
+<body>
+    <div style=" display: flex; justify-content: center; align-items: center; padding: 1%">
+        <img class="bg-img" src="./images/wndrs anim .png" style="width:8%">
+    </div>
+
+    <div>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <img class="bg-img" src="./images/images.jpg" >
-            <div id="app"> 
-               
+            <img class="bg-img" src="./images/images.jpg">
+            <div id="app">
+
                 <div id="winnerVideo" class="hidden">
-                    <iframe src="https://player.vimeo.com/video/252226694" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/252226694" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                        allowfullscreen></iframe>
                     <div class="videoTxt">You have unlock a video</div>
                     <button onclick="continueGame()">continue playing</button>
                 </div>
-               
-            </div> 
-            <div id="revive" class="hidden" >
+
+            </div>
+
+            <div id="revive" class="hidden w3-hide-small">
                 <div>
                     <button class="revive" onclick="tryAgain()">Try Again</button>
                 </div>
-                
-                
+
+
                 <div style="    margin-top: 102px;">
 
-                    <img src="./images/fleches.png" >
-               
+                    <img src="./images/fleches.png">
+
                     <div class="videoTxt">use keyboard arrow to cruise around
-                         </div> 
-                         <div class="videoTxt">
-                                Hit ENTER to restart</div> 
+                    </div>
+                    <div class="videoTxt">
+                        Hit ENTER to restart</div>
                 </div>
-               
-            
+
+
             </div>
-           
 
 
 
-            
+
+
+
             <img class="bg-img" src="./images/mountain.jpg">
         </div>
-       
 
-      </div>
-      <div>
-          <button style="    background-color: #4CAF50;
-          border: none;
-          color: white;
-          padding: 15px 32px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          font-size: 16px;" id="bouzin">hello
 
-          </button>
-      </div>
+    </div>
 
-    
+
+    <div class="w3-row-padding w3-center w3-hide-large">
+
+        <div class="w3-col s0" >
+            <img id="up" src="./images/fleche.png" style="width:30%">
+        </div>
+
+
+
+        <div class="w3-col  s4">
+            <img id="left" src="./images/fleche.png" style="transform: rotate(-90deg);">
+        </div>
+
+        <div class="w3-col  s4">
+            <img src="./images/joystick.png" >
+        </div>
+        <div class="w3-col s4">
+            <img id="right" src="./images/fleche.png" style="transform: rotate(90deg);">
+        </div>
+
+        <div class="w3-col s0" >
+            <img id="down" src="./images/fleche.png" style="width:30%; transform: rotate(180deg);">
+        </div>
+
+    </div>
+
+    <button id="left"> LEFT </button>
+    <button id="right"> right </button>
+    <button id="up"> up </button>
+    <button id="down"> down </button>
+
+
+
+
     <script src="js/kittens.js"></script>
     <link rel="stylesheet" href="styles.css">
 </body>
+
 </html>
