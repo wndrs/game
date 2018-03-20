@@ -25,7 +25,7 @@ function myFunction() {
     logo.className = "hidden";
 
 
-    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 600) {
+    if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
       navbar.className = "w3-bar" + " wN-black";
       logoB.className = "";
       logoW.className = "hidden";
@@ -88,7 +88,9 @@ function closeNav() {
 function openNav1() {
 
   document.getElementById("myNav1").style.width = "100%";
-  setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  if (screen.width <= 768){
+    setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  }
 
 }
 
@@ -100,9 +102,12 @@ function closeNav1() {
 }
 
 function openNav2() {
-
+  
   document.getElementById("myNav2").style.width = "100%";
-  setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  if (screen.width <= 768){
+    setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  }
+ 
 }
 
 function closeNav2() {
@@ -116,7 +121,9 @@ function closeNav2() {
 function openNav3() {
 
   document.getElementById("myNav3").style.width = "100%";
-  setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  if (screen.width <= 768){
+    setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  }
 }
 
 function closeNav3() {
@@ -129,7 +136,9 @@ function closeNav3() {
 function openNav4() {
 
   document.getElementById("myNav4").style.width = "100%";
-  setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  if (screen.width <= 768){
+    setTimeout(function () { document.body.style.position = "fixed"; }, 700);
+  }
 }
 
 function closeNav4() {
