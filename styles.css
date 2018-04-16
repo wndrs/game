@@ -60,3 +60,9 @@ html, body {
     background: white;
     padding: 4%;
 }
+
+.border{
+    border-style: dotted;
+}
+
+

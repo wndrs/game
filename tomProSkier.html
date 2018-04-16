@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta  name='viewport' content=' maximum-scale=1.0, user-scalable=0'/>
+    <meta name='viewport' content=' maximum-scale=1.0, user-scalable=0' />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>TOM PRO SKIER</title>
 </head>
@@ -16,11 +16,11 @@
 
     <div>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <img class="bg-img" src="./images/images.jpg">
+            <img class="bg-img " src="./images/images.jpg">
             <div id="app">
 
                 <div id="winnerVideo" class="hidden">
-                    <iframe src="https://player.vimeo.com/video/252226694" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                    <iframe src="https://player.vimeo.com/video/265068184" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
                         allowfullscreen></iframe>
                     <div class="videoTxt">You have unlock a video</div>
                     <button onclick="continueGame()">continue playing</button>
@@ -28,7 +28,9 @@
 
             </div>
 
-            <div id="revive" class="hidden w3-hide-small">
+            <div id="revive" class="hidden" style="
+    border-style:  dotted;
+">
                 <div>
                     <button class="revive" onclick="tryAgain()">Try Again</button>
                 </div>
@@ -40,7 +42,7 @@
 
                     <div class="videoTxt">use keyboard arrow to cruise around
                     </div>
-                    <div class="videoTxt">
+                    <div class="videoTxt ">
                         Hit ENTER to restart</div>
                 </div>
 
@@ -52,37 +54,55 @@
 
 
 
-            <img class="bg-img" src="./images/mountain.jpg">
+
+            <img class="bg-img " src="./images/mountain.jpg">
+
+
+
         </div>
 
 
     </div>
 
-
-    <div class="w3-row-padding w3-center w3-hide-large">
-
-        <div class="w3-col s0" >
-            <img id="up" src="./images/fleche.png" style="width:30%">
-        </div>
+    <div  class="w3-row-padding w3-center w3-hide-large" style="
+    margin-bottom: 100px;
+">
 
 
 
-        <div class="w3-col  s4">
-            <img id="left" src="./images/fleche.png" style="transform: rotate(-90deg);">
-        </div>
+        <img src="./images/arrow.png" class="w3-col s4 "  style="     opacity: 0; transform: rotate(-90deg);">
 
-        <div class="w3-col  s4">
-            <img src="./images/joystick.png" >
-        </div>
-        <div class="w3-col s4">
-            <img id="right" src="./images/fleche.png" style="transform: rotate(90deg);">
-        </div>
 
-        <div class="w3-col s0" >
-            <img id="down" src="./images/fleche.png" style="width:30%; transform: rotate(180deg);">
-        </div>
+        <img id="up" src="./images/arrow.png" class="w3-col s4 ">
+
+        <img class="w3-col s4" src="./images/arrow.png" style="     opacity: 0;transform: rotate(90deg);">
 
     </div>
+
+
+
+
+    <div id"iphone2" class="w3-row-padding w3-center w3-hide-large  " style="
+    height:  20vh;
+">
+        <img id="left" src="./images/arrow.png" class="w3-col s4" style="transform: rotate(-90deg);">
+
+
+        <img id="down" src="./images/down.png" class="w3-col s4">
+
+        <img id="right" class="w3-col s4" src="./images/arrow.png" style="transform: rotate(90deg);">
+
+    </div>
+
+    <div id="reviveMobile" class="hidden">
+
+
+        <img id="restart" onclick="tryAgain()" src="./images/restart.png" class="w3-col s0">
+
+    </div>
+
+
+
 
 
     <script src="js/kittens.js"></script>

@@ -42,7 +42,12 @@ var images = { day: {}, night: {} };
 });
 
 var revive = document.getElementById("revive");
+var reviveMobile = document.getElementById("reviveMobile");
 var video = document.getElementById("winnerVideo");
+var restart = document.getElementById("restart");
+
+
+
 
 class Entity {
     render(ctx) {
@@ -334,7 +339,13 @@ class Engine {
             this.ctx.font = 'bold 30px Impact';
             this.ctx.fillStyle = theme === 'day' ? '#000000' : '#fff';
             this.ctx.fillText(this.score + ' GAME OVER', 5, 30);
-            revive.className = "";
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                reviveMobile.className = "";
+               }
+               else{
+                revive.className = "";
+               }
+         
         }
        
        
@@ -402,6 +413,14 @@ gameEngine.start();
 
 function continueGame(){
      video.className = "hidden";
+     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        up.className= " w3-col s4 night-filter";
+        down.className= ' w3-col s4 night-filter';
+        left.className= ' w3-col s4 night-filter';
+        right.className= 'w3-col s4 night-filter';
+        restart.className='w3-col s0 night-filter'
+       }
+    
      gameEngine.gotVhs = true;
      gameEngine.vhs = [];
      theme = 'night';
@@ -409,11 +428,20 @@ function continueGame(){
      document.getElementsByTagName('body')[0].className = 'bg-black';
      document.querySelectorAll('.bg-img').forEach(img => img.className = 'night-filter');
      requestAnimationFrame(gameEngine.gameLoop);
+
+ 
+
 }
 
 function tryAgain(){
-    revive.className = "hidden";
 
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        reviveMobile.className= "hidden"
+       }
+       else{
+        revive.className = "hidden";
+       }
     gameEngine.player = new Player();
     gameEngine.score = 0;
     gameEngine.lastFrame = Date.now();
