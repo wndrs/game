@@ -32,18 +32,21 @@
     border-style:  dotted;
 ">
                 <div>
-                    <button class="revive" onclick="tryAgain()">Try Again</button>
+                    <img id="restart2" onclick="tryAgain()" src="./images/restart.png" class="w3-col s0 w3-hover-red">
+
                 </div>
 
 
                 <div style="    margin-top: 102px;">
 
-                    <img src="./images/fleches.png">
+                    <img src="./images/fleches.png" style="
+                        display:  block;
+                        margin:  auto;
+                    ">
 
-                    <div class="videoTxt">use keyboard arrow to cruise around
-                    </div>
+
                     <div class="videoTxt ">
-                        Hit ENTER to restart</div>
+                        Capture the VHS to win a video</div>
                 </div>
 
 
@@ -51,11 +54,11 @@
 
             <div id="reviveMobile" class="hidden">
 
-
-                <img id="restart"  onclick="tryAgain()" src="./images/restart.png" class="w3-col s0">
-        
+                <img id="restart" onclick="tryAgain()" src="./images/restart.png" class="w3-col s0 reviveMobile ">
+                <div class="vidTxt"> Capture the VHS to win a video
+                </div>
             </div>
-        
+
 
 
 
@@ -71,28 +74,28 @@
 
 
     </div>
-    <div  class="w3-row-padding w3-center w3-hide-medium w3-hide-small" style="
+    <div class="w3-row-padding w3-center w3-hide-medium w3-hide-small" style="
     margin-bottom: 100px;
 ">
 
 
 
-        <img src="./images/arrow.png" class="w3-col s4 "  style="     opacity: 0; transform: rotate(-90deg);">
+        <img src="./images/arrow.png" class="w3-col s4 " style="     opacity: 0; transform: rotate(-90deg);">
 
 
         <img class="w3-col s4" src="./images/arrow.png" style="     opacity: 0;transform: rotate(90deg);">
 
         <img class="w3-col s4" src="./images/arrow.png" style="     opacity: 0;transform: rotate(90deg);">
 
-    </div>  
+    </div>
 
-    <div  class="w3-row-padding w3-center " style="
+    <div class="w3-row-padding w3-center " style="
     margin-bottom: 100px;
 ">
 
 
 
-        <img src="./images/arrow.png" class="w3-col s4 "  style="     opacity: 0; transform: rotate(-90deg);">
+        <img src="./images/arrow.png" class="w3-col s4 " style="     opacity: 0; transform: rotate(-90deg);">
 
 
         <img id="up" src="./images/arrow.png" class="w3-col s4 ">
@@ -104,7 +107,7 @@
 
 
 
-    <div id"iphone2" class="w3-row-padding w3-center   " style="
+    <div id "iphone2" class="w3-row-padding w3-center   " style="
     height:  20vh;
 ">
         <img id="left" src="./images/arrow.png" class="w3-col s4" style="transform: rotate(-90deg);">
@@ -118,15 +121,15 @@
 
 
 
-   
 
-  
+
+
 
 
 
 
     <script src="js/kittens.js"></script>
-    
+
     <link rel="stylesheet" href="styles.css">
 </body>
 

@@ -418,7 +418,7 @@ function continueGame(){
         down.className= ' w3-col s4 night-filter';
         left.className= ' w3-col s4 night-filter';
         right.className= 'w3-col s4 night-filter';
-        restart.className='w3-col s0 night-filter'
+        restart.className='w3-col s0 reviveMobile night-filter'
        }
     
      gameEngine.gotVhs = true;
