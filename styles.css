@@ -33,9 +33,16 @@ html, body {
 .night-filter {
     filter: invert(100%);
 }
+.bg-img{
+    filter: none;
+}
 
 .bg-black {
     background: black;
+}
+
+.bg-white {
+    background: white;
 }
 
 
