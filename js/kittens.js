@@ -48,13 +48,15 @@ var reviveMobile = document.getElementById("reviveMobile");
 var video = document.getElementById("winnerVideo");
 var restart = document.getElementById("restart");
 
-document.addEventListener('touchmove', function(event) {
-    event = event.originalEvent || event;
-    if(event.scale !== 1) {
-      event.preventDefault();
-    }
-  }, false);
-
+// document.addEventListener('touchmove', function(event) {
+//     event = event.originalEvent || event;
+//     if(event.scale !== 1) {
+//       event.preventDefault();
+//     }
+//   }, false);
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
 
 
 
