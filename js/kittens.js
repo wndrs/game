@@ -260,10 +260,6 @@ class Engine {
         });
             
 
- 
-           
-        
-
         this.gameLoop();
        
     }
@@ -347,9 +343,6 @@ class Engine {
             MAX_ENEMIES = 3;
             ENEMY_SPEED= 0.43
             VHS_SPEED=0.43
-          
-   
-
         }
 
         if(this.score > 6000){
@@ -536,6 +529,18 @@ class Engine {
         if(this.score > 52000){
             MAX_ENEMIES = 2;
             ENEMY_SPEED= 1.7
+        
+        }
+
+        if(this.score > 55000){
+            MAX_ENEMIES = 1;
+            ENEMY_SPEED= 1.8
+        
+        }
+
+        if(this.score > 55000){
+            MAX_ENEMIES = 1;
+            ENEMY_SPEED= 2
         
         }
 
