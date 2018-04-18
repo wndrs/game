@@ -11,9 +11,10 @@ var ENEMY_SPEED = 0.3;
 var VHS_SPEED = 0.3;
 
 
-var audio = new Audio('./audio/fuckit.mp3');
-var audioLoose = new Audio('./audio/youloose.mp3');
-
+var audio = new Audio ;
+audio.src='./audio/fuckit.mp3';
+var audioLoose = new Audio;
+audioLoose.src='./audio/youloose.mp3';
 
 var PLAYER_WIDTH = 75;
 var PLAYER_HEIGHT = 54;
@@ -318,8 +319,13 @@ class Engine {
 
         }
         if (this.score > 10) {
-           audio.play();
+     
+            
         }
+        if (this.score > 100) {
+            audio.play();
+          
+         }
         if (this.score > 1000) {
             MAX_ENEMIES = 1;
             ENEMY_SPEED = 0.3
@@ -602,10 +608,11 @@ class Engine {
     }
 
     isPlayerDead() {
-
+       
         var x = this.enemies.some((enemy) => {
             if (enemy.y + ENEMY_HEIGHT > this.player.y && enemy.enemyColumn === this.player.playerColumn && enemy.y < this.player.y) {
                 MAX_ENEMIES = 0;
+             
                 return true;
             }
         });
