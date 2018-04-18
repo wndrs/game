@@ -11,8 +11,8 @@ var ENEMY_SPEED = 0.3;
 var VHS_SPEED = 0.3;
 
 
-var audio = new Audio('/Users/noeprovost/Desktop/fuckit.mp3');
-var audioLoose = new Audio('/Users/noeprovost/Desktop/youLoose.mp3');
+var audio = new Audio('./audio/fuckit.mp3');
+var audioLoose = new Audio('./audio/youLoose.mp3');
 
 
 var PLAYER_WIDTH = 75;
@@ -106,7 +106,7 @@ class Player extends Entity {
     constructor() {
         super();
         this.x = 2 * PLAYER_WIDTH;
-        this.y = GAME_HEIGHT - (7 * PLAYER_HEIGHT) - 10;
+        this.y = GAME_HEIGHT - (5 * PLAYER_HEIGHT) - 10;
         this.sprite = images[theme]['player'];
         this.playerColumn = 2;
 
