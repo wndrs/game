@@ -12,7 +12,7 @@ var VHS_SPEED = 0.3;
 
 
 var audio = new Audio('./audio/fuckit.mp3');
-var audioLoose = new Audio('./audio/youLoose.mp3');
+var audioLoose = new Audio('./audio/youloose.mp3');
 
 
 var PLAYER_WIDTH = 75;
