@@ -558,7 +558,7 @@ class Engine {
             // If they are dead, then it's game over!
             audioLoose.play();
             audio.pause();
-            audio.src="/Users/noeprovost/Desktop/fuckit.mp3"
+            audio.src="./audio/fuckit.mp3"
             this.ctx.font = 'bold 30px Impact';
             this.ctx.fillStyle = theme === 'day' ? '#000000' : '#fff';
             this.ctx.fillText(this.score + ' GAME OVER', 5, 30);
@@ -577,7 +577,7 @@ class Engine {
             video.className = "";
             document.getElementById('myframe').src = "https://player.vimeo.com/video/265068184?autoplay=1"
             audio.pause();
-            audio.src="/Users/noeprovost/Desktop/fuckit.mp3"
+            audio.src="./audio/fuckit.mp3"
         }
 
 
