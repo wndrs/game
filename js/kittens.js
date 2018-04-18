@@ -11,6 +11,10 @@ var ENEMY_SPEED = 0.3;
 var VHS_SPEED = 0.3;
 
 
+var audio = new Audio('/Users/noeprovost/Desktop/fuckit.mp3');
+var audioLoose = new Audio('/Users/noeprovost/Desktop/youLoose.mp3');
+
+
 var PLAYER_WIDTH = 75;
 var PLAYER_HEIGHT = 54;
 
@@ -309,22 +313,22 @@ class Engine {
             }
         });
 
-        if (this.score > 100 && !this.gotVhs) {
+        if (this.score > 10000 && !this.gotVhs) {
             this.setupVhs();
 
         }
-
+        if (this.score > 10) {
+           audio.play();
+        }
         if (this.score > 1000) {
             MAX_ENEMIES = 1;
             ENEMY_SPEED = 0.3
             VHS_SPEED = 0.3
-
-
         }
         if (this.score > 2000) {
             ENEMY_SPEED = 0.33
             VHS_SPEED = 0.3
-
+        
 
         }
 
@@ -333,13 +337,13 @@ class Engine {
             ENEMY_SPEED = 0.37
             VHS_SPEED = 0.3
 
-        }
+            }
 
         if (this.score > 4000) {
             MAX_ENEMIES = 3;
             ENEMY_SPEED = 0.4
             VHS_SPEED = 0.3
-
+           
         }
 
         if (this.score > 5000) {
@@ -352,13 +356,15 @@ class Engine {
             MAX_ENEMIES = 3;
             ENEMY_SPEED = 0.45
             VHS_SPEED = 0.45;
-
+          
+            
         }
 
         if (this.score > 7000) {
             MAX_ENEMIES = 3;
             ENEMY_SPEED = 0.48
             VHS_SPEED = 0.48
+         
         }
 
         if (this.score > 8000) {
@@ -550,6 +556,9 @@ class Engine {
         // Check if player is dead
         if (this.isPlayerDead()) {
             // If they are dead, then it's game over!
+            audioLoose.play();
+            audio.pause();
+            audio.src="/Users/noeprovost/Desktop/fuckit.mp3"
             this.ctx.font = 'bold 30px Impact';
             this.ctx.fillStyle = theme === 'day' ? '#000000' : '#fff';
             this.ctx.fillText(this.score + ' GAME OVER', 5, 30);
@@ -567,6 +576,8 @@ class Engine {
         else if (this.weHaveWinner()) {
             video.className = "";
             document.getElementById('myframe').src = "https://player.vimeo.com/video/265068184?autoplay=1"
+            audio.pause();
+            audio.src="/Users/noeprovost/Desktop/fuckit.mp3"
         }
 
 
@@ -625,12 +636,17 @@ var gameEngine = new Engine(document.getElementById('app'));
 gameEngine.start();
 
 
+
+
 function continueGame() {
     document.getElementById('myframe').src = ""
     video.className = "hidden";
     MAX_ENEMIES = 1;
     gameEngine.gotVhs = true;
     gameEngine.vhs = [];
+    gameEngine.score = 0;
+    gameEngine.enemies = [];
+    MAX_VHS = 1;
     goblack();
     requestAnimationFrame(gameEngine.gameLoop);
 
@@ -689,3 +705,4 @@ function tryAgain() {
 function bouzin() {
 
 }
+
