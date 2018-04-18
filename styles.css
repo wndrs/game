@@ -7,7 +7,7 @@ html, body {
 }
 
 #winnerVideo{
-    position: absolute;
+
     z-index: 10;
     text-align: center;
 }

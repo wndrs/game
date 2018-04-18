@@ -1,3 +1,4 @@
+
 // This sectin contains some game constants. It is not super interesting
 var GAME_WIDTH = 525;
 var GAME_HEIGHT = 700;
@@ -6,8 +7,9 @@ var ENEMY_WIDTH = 75;
 var ENEMY_HEIGHT = 96;
 var MAX_ENEMIES = 1;
 var MAX_VHS = 1;
-var ENEMY_SPEED= 0.3;
-var VHS_SPEED= 0.3;
+var ENEMY_SPEED = 0.3;
+var VHS_SPEED = 0.3;
+
 
 var PLAYER_WIDTH = 75;
 var PLAYER_HEIGHT = 54;
@@ -17,14 +19,14 @@ var LEFT_ARROW_CODE = 37;
 var RIGHT_ARROW_CODE = 39;
 var UP_ARROW_CODE = 38;
 var DOWN_ARROW_CODE = 40;
-var ENTER_KEY =13;
+var ENTER_KEY = 13;
 
 
 
 // These two constants allow us to DRY
 var MOVE_LEFT = 'left';
 var MOVE_RIGHT = 'right';
-var MOVE_UP ="up";
+var MOVE_UP = "up";
 var MOVE_DOWN = "down";
 var RESTART = "restart"
 
@@ -32,12 +34,12 @@ var theme = 'day';
 
 // Preload game images
 var images = { day: {}, night: {} };
-['enemy', 'stars', 'player','TAPE' ].forEach(imgName => {
+['enemy', 'stars', 'player', 'TAPE'].forEach(imgName => {
     var img = document.createElement('img');
     img.src = 'images/' + imgName + '.png';
     images.day[imgName] = img;
 });
-['enemy', 'stars', 'player' ].forEach(imgName => {
+['enemy', 'stars', 'player'].forEach(imgName => {
     var img = document.createElement('img');
     img.src = 'images/' + imgName + '2.png';
     images.night[imgName] = img;
@@ -75,7 +77,7 @@ class Enemy extends Entity {
         this.y = this.y + timeDiff * this.speed;
     }
 
-   
+
 }
 
 class Vhs extends Entity {
@@ -93,17 +95,17 @@ class Vhs extends Entity {
         this.y = this.y + timeDiff * this.speed;
     }
 
-   
+
 }
 
 class Player extends Entity {
     constructor() {
         super();
         this.x = 2 * PLAYER_WIDTH;
-        this.y = GAME_HEIGHT - (7*PLAYER_HEIGHT) - 10;
+        this.y = GAME_HEIGHT - (7 * PLAYER_HEIGHT) - 10;
         this.sprite = images[theme]['player'];
         this.playerColumn = 2;
-       
+
     }
 
     // This method is called by the game engine when left/right arrows are pressed
@@ -115,21 +117,21 @@ class Player extends Entity {
         else if (direction === MOVE_RIGHT && this.x < GAME_WIDTH - PLAYER_WIDTH) {
             this.x = this.x + PLAYER_WIDTH;
             this.playerColumn = this.playerColumn + 1;
-          
-        }
-        else if (direction === MOVE_UP && this.y  > 0) {
-            this.y = this.y - PLAYER_HEIGHT;
-          }
-          else if (direction === MOVE_DOWN && this.y < GAME_HEIGHT - PLAYER_HEIGHT) {
-            this.y = this.y + PLAYER_HEIGHT;
-          }
 
-          else if (direction === RESTART ) {
+        }
+        else if (direction === MOVE_UP && this.y > 0) {
+            this.y = this.y - PLAYER_HEIGHT;
+        }
+        else if (direction === MOVE_DOWN && this.y < GAME_HEIGHT - PLAYER_HEIGHT) {
+            this.y = this.y + PLAYER_HEIGHT;
+        }
+
+        else if (direction === RESTART) {
             gameEngine.restart();
-          }
+        }
     }
 
-    
+
 }
 
 
@@ -145,11 +147,11 @@ class Engine {
     constructor(element) {
         // Setup the player
         this.player = new Player();
-        this.vhs= [];
+        this.vhs = [];
         this.gotVhs = false;
         // Setup enemies, making sure there are always three
         this.setupEnemies();
-       
+
 
         // Setup the <canvas> element where we will be drawing
         var canvas = document.createElement('canvas');
@@ -201,10 +203,10 @@ class Engine {
         this.enemies[enemySpot] = new Enemy(enemySpot * ENEMY_WIDTH);
         this.enemies[enemySpot].enemyColumn = enemySpot;
 
-        
+
     }
-     // This method finds a random spot where there is VHS, and puts one in there
-     addVHS() {
+    // This method finds a random spot where there is VHS, and puts one in there
+    addVHS() {
         var vhsSpots = GAME_WIDTH / ENEMY_WIDTH;
 
         var vhsSpot;
@@ -216,19 +218,19 @@ class Engine {
         this.vhs[vhsSpot] = new Vhs(vhsSpot * ENEMY_WIDTH);
         this.vhs[vhsSpot].vhsColumn = vhsSpot;
 
-        
+
     }
 
     // This method kicks off the game
     start() {
         this.score = 0;
         this.lastFrame = Date.now();
-      
+
         // Listen for keyboard left/right and update the player
         document.addEventListener('keydown', e => {
             if (e.keyCode === LEFT_ARROW_CODE) {
                 this.player.move(MOVE_LEFT);
-                
+
             }
             else if (e.keyCode === RIGHT_ARROW_CODE) {
                 this.player.move(MOVE_RIGHT);
@@ -239,7 +241,7 @@ class Engine {
             else if (e.keyCode === DOWN_ARROW_CODE) {
                 this.player.move(MOVE_DOWN);
             }
-            else if (e.keyCode === ENTER_KEY && this.isPlayerDead() === true  ) {
+            else if (e.keyCode === ENTER_KEY && this.isPlayerDead() === true) {
                 tryAgain();
             }
         });
@@ -259,10 +261,10 @@ class Engine {
         document.getElementById("down").addEventListener("click", e => {
             this.player.move(MOVE_DOWN)
         });
-            
+
 
         this.gameLoop();
-       
+
     }
 
     /*
@@ -306,243 +308,243 @@ class Engine {
                 delete this.vhs[TAPEIdx];
             }
         });
-   
-        if (this.score > 10000 && !this.gotVhs){
+
+        if (this.score > 100 && !this.gotVhs) {
             this.setupVhs();
-           
+
         }
 
-        if(this.score > 1000){
+        if (this.score > 1000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= 0.3
-            VHS_SPEED=0.3
-         
-          
+            ENEMY_SPEED = 0.3
+            VHS_SPEED = 0.3
+
+
         }
-        if(this.score > 2000){
-            ENEMY_SPEED= 0.33
-            VHS_SPEED=0.3
-      
-         
+        if (this.score > 2000) {
+            ENEMY_SPEED = 0.33
+            VHS_SPEED = 0.3
+
+
         }
 
-        if(this.score > 3000){
+        if (this.score > 3000) {
             MAX_ENEMIES = 2;
-            ENEMY_SPEED= 0.37
-            VHS_SPEED=0.3
-     
+            ENEMY_SPEED = 0.37
+            VHS_SPEED = 0.3
+
         }
 
-        if(this.score > 4000){
+        if (this.score > 4000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= 0.4
-            VHS_SPEED=0.3
+            ENEMY_SPEED = 0.4
+            VHS_SPEED = 0.3
 
         }
 
-        if(this.score > 5000){
+        if (this.score > 5000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= 0.43
-            VHS_SPEED=0.43
+            ENEMY_SPEED = 0.43
+            VHS_SPEED = 0.43
         }
 
-        if(this.score > 6000){
+        if (this.score > 6000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= 0.45
-            VHS_SPEED=0.45;
-           
+            ENEMY_SPEED = 0.45
+            VHS_SPEED = 0.45;
+
         }
 
-        if(this.score > 7000){
+        if (this.score > 7000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= 0.48
-            VHS_SPEED=0.48
+            ENEMY_SPEED = 0.48
+            VHS_SPEED = 0.48
         }
 
-        if(this.score > 8000){
+        if (this.score > 8000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= 0.5
-            VHS_SPEED=0.5
+            ENEMY_SPEED = 0.5
+            VHS_SPEED = 0.5
         }
 
-        if(this.score > 9000){
+        if (this.score > 9000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= 0.53
-            VHS_SPEED=0.53
+            ENEMY_SPEED = 0.53
+            VHS_SPEED = 0.53
         }
 
-        if(this.score > 10000){
+        if (this.score > 10000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= .57
-            VHS_SPEED=.57
+            ENEMY_SPEED = .57
+            VHS_SPEED = .57
         }
 
-        if(this.score > 11000){
+        if (this.score > 11000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= .6
-            VHS_SPEED=.6
+            ENEMY_SPEED = .6
+            VHS_SPEED = .6
         }
 
-        if(this.score > 12000){
+        if (this.score > 12000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= .62;
-            VHS_SPEED=.62;
-            
+            ENEMY_SPEED = .62;
+            VHS_SPEED = .62;
+
         }
 
-        if(this.score > 13000){
+        if (this.score > 13000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= .66
-            VHS_SPEED=.66
+            ENEMY_SPEED = .66
+            VHS_SPEED = .66
         }
 
-        if(this.score > 14000){
+        if (this.score > 14000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= .7
-            VHS_SPEED=.7
+            ENEMY_SPEED = .7
+            VHS_SPEED = .7
         }
 
-        if(this.score > 15000){
+        if (this.score > 15000) {
             MAX_ENEMIES = 3;
-            ENEMY_SPEED= .73
-            VHS_SPEED=.73
+            ENEMY_SPEED = .73
+            VHS_SPEED = .73
         }
 
-        if(this.score > 16000){
+        if (this.score > 16000) {
             MAX_ENEMIES = 4;
-       
+
         }
 
-      
 
-        if(this.score > 18000){
+
+        if (this.score > 18000) {
             MAX_ENEMIES = 2;
-       
+
         }
 
-        if(this.score > 20000 && !this.gotVhs){
+        if (this.score > 20000 && !this.gotVhs) {
 
-            MAX_VHS=0;
-       
+            MAX_VHS = 0;
+
         }
-        if(this.score > 21000){
+        if (this.score > 21000) {
             MAX_ENEMIES = 5;
-    
-       
+
+
         }
 
 
-        if(this.score > 23000){
+        if (this.score > 23000) {
             MAX_ENEMIES = 1;
-       
+
         }
 
-        if(this.score > 24000){
-            ENEMY_SPEED= .8
+        if (this.score > 24000) {
+            ENEMY_SPEED = .8
             goblack();
-       
+
         }
 
-        if(this.score > 26000){
-            ENEMY_SPEED= .9
-    
+        if (this.score > 26000) {
+            ENEMY_SPEED = .9
+
         }
 
 
-        if(this.score > 27000){
-            ENEMY_SPEED= 1
-       
+        if (this.score > 27000) {
+            ENEMY_SPEED = 1
+
         }
-        if(this.score > 28000){
-            ENEMY_SPEED= 1.2
-       
+        if (this.score > 28000) {
+            ENEMY_SPEED = 1.2
+
         }
-        if(this.score > 30000){
-            ENEMY_SPEED= .4
+        if (this.score > 30000) {
+            ENEMY_SPEED = .4
             gowhite();
-       
+
         }
 
-        if(this.score > 31000){
+        if (this.score > 31000) {
             MAX_ENEMIES = 4;
-       
+
         }
 
-        if(this.score > 33000){
+        if (this.score > 33000) {
             MAX_ENEMIES = 5;
         }
 
-        if(this.score > 35000){
+        if (this.score > 35000) {
             MAX_ENEMIES = 6;
-            ENEMY_SPEED= .5
+            ENEMY_SPEED = .5
         }
 
 
-        if(this.score > 40000){
+        if (this.score > 40000) {
             MAX_ENEMIES = 1;
-       
+
             goblack();
         }
 
-        if(this.score > 42000){
+        if (this.score > 42000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= .6
+            ENEMY_SPEED = .6
 
         }
 
-        if(this.score > 44000){
+        if (this.score > 44000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= .7
+            ENEMY_SPEED = .7
 
         }
 
-        if(this.score > 45000){
+        if (this.score > 45000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= .8
+            ENEMY_SPEED = .8
 
         }
 
 
-        if(this.score > 46000){
+        if (this.score > 46000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= .9
+            ENEMY_SPEED = .9
 
         }
 
-        if(this.score > 47000){
+        if (this.score > 47000) {
             MAX_ENEMIES = 2;
-            ENEMY_SPEED= 1
-            
+            ENEMY_SPEED = 1
+
         }
 
-        if(this.score > 48000){
-            ENEMY_SPEED= 1.1
-            
+        if (this.score > 48000) {
+            ENEMY_SPEED = 1.1
+
         }
 
-        if(this.score > 50000){
+        if (this.score > 50000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= 1.5
-        
+            ENEMY_SPEED = 1.5
+
         }
 
 
-        if(this.score > 52000){
+        if (this.score > 52000) {
             MAX_ENEMIES = 2;
-            ENEMY_SPEED= 1.7
-        
+            ENEMY_SPEED = 1.7
+
         }
 
-        if(this.score > 55000){
+        if (this.score > 55000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= 1.8
-        
+            ENEMY_SPEED = 1.8
+
         }
 
-        if(this.score > 55000){
+        if (this.score > 55000) {
             MAX_ENEMIES = 1;
-            ENEMY_SPEED= 2
-        
+            ENEMY_SPEED = 2
+
         }
 
         // Check if player is dead
@@ -551,19 +553,20 @@ class Engine {
             this.ctx.font = 'bold 30px Impact';
             this.ctx.fillStyle = theme === 'day' ? '#000000' : '#fff';
             this.ctx.fillText(this.score + ' GAME OVER', 5, 30);
-            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 reviveMobile.className = "";
-               }
-               else{
+            }
+            else {
                 revive.className = "";
-               }
-         
+            }
+
         }
-       
-       
-       ////// youu are a winner bravo 
+
+
+        ////// youu are a winner bravo 
         else if (this.weHaveWinner()) {
             video.className = "";
+            document.getElementById('myframe').src = "https://player.vimeo.com/video/265068184?autoplay=1"
         }
 
 
@@ -572,27 +575,27 @@ class Engine {
         else {
             // If player is not dead, then draw the score
             this.ctx.font = 'bold 30px Impact';
-            this.ctx.fillStyle =  theme === 'day' ? '#000000' : '#fff';
+            this.ctx.fillStyle = theme === 'day' ? '#000000' : '#fff';
             this.ctx.fillText(this.score, 5, 30);
 
             // Set the time marker and redraw
             this.lastFrame = Date.now();
             requestAnimationFrame(this.gameLoop);
         }
-           
-          
 
 
 
-        
+
+
+
     }
 
     isPlayerDead() {
-        
+
         var x = this.enemies.some((enemy) => {
-            if ( enemy.y + ENEMY_HEIGHT > this.player.y && enemy.enemyColumn === this.player.playerColumn && enemy.y  < this.player.y ) {
-               MAX_ENEMIES=0;
-               return true;
+            if (enemy.y + ENEMY_HEIGHT > this.player.y && enemy.enemyColumn === this.player.playerColumn && enemy.y < this.player.y) {
+                MAX_ENEMIES = 0;
+                return true;
             }
         });
         return x;
@@ -600,9 +603,9 @@ class Engine {
 
     weHaveWinner() {
         var x = this.vhs.some((TAPE) => {
-            if ( TAPE.y +47 > this.player.y && TAPE.vhsColumn === this.player.playerColumn && TAPE.y  < this.player.y ) {
-               
-               return true;
+            if (TAPE.y + 47 > this.player.y && TAPE.vhsColumn === this.player.playerColumn && TAPE.y < this.player.y) {
+
+                return true;
             }
         });
         return x;
@@ -610,7 +613,7 @@ class Engine {
 
 
 
-    
+
 }
 
 
@@ -622,70 +625,67 @@ var gameEngine = new Engine(document.getElementById('app'));
 gameEngine.start();
 
 
-function continueGame(){
-     video.className = "hidden";
-     MAX_ENEMIES=1;
-   
-    
-    
-     gameEngine.gotVhs = true;
-     gameEngine.vhs = [];
-     goblack();
-    
-     requestAnimationFrame(gameEngine.gameLoop);
+function continueGame() {
+    document.getElementById('myframe').src = ""
+    video.className = "hidden";
+    MAX_ENEMIES = 1;
+    gameEngine.gotVhs = true;
+    gameEngine.vhs = [];
+    goblack();
+    requestAnimationFrame(gameEngine.gameLoop);
 
- 
+
 
 }
-function goblack(){
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-       up.className= " w3-col s4 night-filter";
-       down.className= ' w3-col s4 night-filter';
-       left.className= ' w3-col s4 night-filter';
-       right.className= 'w3-col s4 night-filter';
-       restart.className='w3-col s0 reviveMobile night-filter'
-      }
+function goblack() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        up.className = " w3-col s4 night-filter";
+        down.className = ' w3-col s4 night-filter';
+        left.className = ' w3-col s4 night-filter';
+        right.className = 'w3-col s4 night-filter';
+        restart.className = 'w3-col s0 reviveMobile night-filter'
+    }
     theme = 'night';
     gameEngine.player.sprite = images[theme]['player'];
     document.getElementsByTagName('body')[0].className = 'bg-black';
     document.querySelectorAll('.bg-img').forEach(img => img.className = 'night-filter');
 
 }
-function gowhite(){
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-       up.className= " w3-col s4 ";
-       down.className= ' w3-col s4 ';
-       left.className= ' w3-col s4 ';
-       right.className= 'w3-col s4 ';
-       restart.className='w3-col s0 reviveMobile '
-      }
+function gowhite() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        up.className = " w3-col s4 ";
+        down.className = ' w3-col s4 ';
+        left.className = ' w3-col s4 ';
+        right.className = 'w3-col s4 ';
+        restart.className = 'w3-col s0 reviveMobile '
+    }
     theme = 'day';
     gameEngine.player.sprite = images[theme]['player'];
     document.getElementsByTagName('body')[0].className = 'bg-white';
     document.querySelectorAll('.night-filter').forEach(img => img.className = 'bg-img');
 
 }
-function tryAgain(){
+function tryAgain() {
 
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        reviveMobile.className= "hidden"
-       }
-       else{
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        reviveMobile.className = "hidden"
+    }
+    else {
         revive.className = "hidden";
-       }
+    }
     gameEngine.player = new Player();
     gameEngine.score = 0;
     gameEngine.lastFrame = Date.now();
     gameEngine.enemies = [];
     gameEngine.vhs = [];
-    MAX_VHS=1;
-   
-    
-     
-     requestAnimationFrame(gameEngine.gameLoop);
+    MAX_VHS = 1;
+
+
+
+    requestAnimationFrame(gameEngine.gameLoop);
 }
 
-function bouzin(){
-    
+function bouzin() {
+
 }
