@@ -323,7 +323,7 @@ class Engine {
             
         }
         if (this.score > 100) {
-            audio.play();
+            
           
          }
         if (this.score > 1000) {
@@ -656,6 +656,7 @@ function continueGame() {
     MAX_VHS = 1;
     goblack();
     requestAnimationFrame(gameEngine.gameLoop);
+    audio.play();
 
 
 
@@ -690,7 +691,7 @@ function gowhite() {
 }
 function tryAgain() {
 
-
+    audio.play();
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         reviveMobile.className = "hidden"
     }
@@ -704,12 +705,15 @@ function tryAgain() {
     gameEngine.vhs = [];
     MAX_VHS = 1;
 
-
+    if(gameEngine.gotVhs===true){
+        goblack();
+      
+    }
 
     requestAnimationFrame(gameEngine.gameLoop);
+
+  
 }
 
-function bouzin() {
 
-}
 
