@@ -641,7 +641,7 @@ class Engine {
 // This section will start the game
 var gameEngine = new Engine(document.getElementById('app'));
 gameEngine.start();
-
+audio.play();
 
 
 
